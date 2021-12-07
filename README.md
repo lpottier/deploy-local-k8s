@@ -1,7 +1,8 @@
-# How to deploy locally a cluster Kubernetes on macOS
+# How to deploy locally a cluster Kubernetes
 ---
 We will deploy a simple Kubernetes cluster with the Kubernetes dashboard. 
 You need to have Docker Desktop and `kubectl` installed.
+That procedure has been tested on macOS `11.6.1` (Intel), Docker Desktop `4.3.0 (71786)` (Engine `20.10.11`) and Kubernetes `v1.22.4`.
 
 Make sure you have enabled the Kubernetes cluster option in Docker Desktop. You can check if you have pods running with `kubectl get po -A`.
 You should get something like:

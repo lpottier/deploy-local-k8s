@@ -23,12 +23,13 @@ kube-system            vpnkit-controller                           1/1     Runni
 We will first deploy a simple webserver:
 
 ```
-kubectl expose deployment hello --type=NodePort --port=8080
+kubectl create deployment hello --image=k8s.gcr.io/echoserver:1.4
 ```
 
 ```
-kubectl create deployment hello --image=k8s.gcr.io/echoserver:1.4
+kubectl expose deployment hello --type=NodePort --port=8080
 ```
+
 
 ## Dashboard
 ```
@@ -58,3 +59,17 @@ kubectl apply -f cluster-roles.yaml
 ```
 
 You can finally run `kubectl proxy` and go to [http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
+
+# Delete your deployment
+Similarly to `apply` we can use `delete` to delete our services:
+
+```
+kubectl delete -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.2/components.yaml
+```
+```
+kubectl delete -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.2.0/aio/deploy/recommended.yaml
+```
+and finally
+```
+kubectl delete deployment hello
+```

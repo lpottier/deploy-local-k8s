@@ -50,10 +50,10 @@ kubectl patch deployment metrics-server -n kube-system --type 'json' -p '[{"op":
 
 ### Cluster Role
 
-Finally, we patch the roles to give the correct accesses to the dashboard (note you can find the file `cluster-role.yaml` in this repo):
+Finally, we patch the roles to give the correct accesses to the dashboard (note you can find the file `cluster-roles.yaml` in this repo):
 
 ```
-kubectl apply -f cluster-role.yaml
+kubectl apply -f cluster-roles.yaml
 ```
 
 You can finally run `kubectl proxy` and go to [http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
